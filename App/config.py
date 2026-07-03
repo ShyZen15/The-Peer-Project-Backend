@@ -1,4 +1,7 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 class Settings(BaseSettings):
     SUPABASE_URL: str
@@ -9,4 +12,4 @@ class Settings(BaseSettings):
         env_file_encoding="utf-8"
     )
 
-settings = Settings()
+settings = Settings(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_KEY"))
