@@ -1,5 +1,6 @@
 .venv
 .idea
+__pycache__
 App/.env
 App/__pycache__
 App/Schemas/__pycache__
