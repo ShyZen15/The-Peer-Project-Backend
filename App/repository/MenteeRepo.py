@@ -23,44 +23,44 @@ class MenteeRepo():
 
 
     @staticmethod
-    def getDataByID(id: int):
+    def getDataByID(id: str):
         return (
             supabase
             .table("Mentees")
             .select("*")
-            .eq("id", id)
+            .eq("discord_id", id)
             .execute()
         ).data
 
     @staticmethod
-    def updateData(id: int, data: dict):
+    def updateData(id: str, data: dict):
         return (
             supabase
             .table("Mentees")
             .update(data)
-            .eq("id", id)
+            .eq("discord_id", id)
             .execute()
         )
 
     @staticmethod
-    def updateDataField(id: int, data, field: str):
+    def updateDataField(id: str, data, field: str):
         return (
             supabase
             .table("Mentees")
             .update(
                 {field: data}
             )
-            .eq("id", id)
+            .eq("discord_id", id)
             .execute()
         )
 
     @staticmethod
-    def deleteData(id: int):
+    def deleteData(id: str):
         return (
             supabase
             .table("Mentees")
             .delete()
-            .eq("id", id)
+            .eq("discord_id", id)
             .execute()
         )
 

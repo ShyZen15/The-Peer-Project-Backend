@@ -23,7 +23,7 @@ class MentorRepo():
 
 
     @staticmethod
-    def getDataByID(id: int):
+    def getDataByID(id: str):
         return (
             supabase
             .table("Mentors")
@@ -33,7 +33,7 @@ class MentorRepo():
         ).data
 
     @staticmethod
-    def updateData(id: int, data: dict):
+    def updateData(id: str, data: dict):
         return (
             supabase
             .table("Mentors")
@@ -43,7 +43,7 @@ class MentorRepo():
         )
 
     @staticmethod
-    def updateDataField(id: int, data, field: str):
+    def updateDataField(id: str, data, field: str):
         return (
             supabase
             .table("Mentors")
@@ -53,7 +53,7 @@ class MentorRepo():
         )
 
     @staticmethod
-    def deleteData(id: int):
+    def deleteData(id: str):
         return (
             supabase
             .table("mentors")
