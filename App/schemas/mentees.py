@@ -9,7 +9,7 @@ class MenteesRegistration(BaseModel):
     display_name: str
     email: EmailStr
     discord_id: str
-    reddit_id: Optional[str] = None
+    reddit_id: str | None
     track: List[TrackMentor]
     helpIn: str
     Availability: Availability
