@@ -21,7 +21,7 @@ class EmbeddingService:
     def embed_mentee(mentee):
         profile = ProfileFormatter.mentee_profile(mentee)
         embedding = EmbeddingEncoder.encode(profile)
-        EmbeddingRepo.createMentorEmbedding(
+        EmbeddingRepo.createMenteeEmbedding(
             mentee.discord_id,
             embedding, 
             "nvidia/llama-nemotron-embed-1b-v2"

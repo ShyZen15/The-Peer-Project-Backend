@@ -1,5 +1,5 @@
 from database import supabase
-
+from App.schemas.mentor import MentorRegistration
 class MentorRepo():
 
     @staticmethod
@@ -31,6 +31,19 @@ class MentorRepo():
             .eq("discord_id", id)
             .execute()
         ).data
+    
+    @staticmethod
+    def getDataByIDSingle(id: str):
+        M_data= (
+            supabase
+            .table("Mentors")
+            .select("*")
+            .eq("discord_id", id)
+            .single()
+            .execute()
+        )
+
+        return MentorRegistration(**M_data.data)
 
     @staticmethod
     def updateData(id: str, data: dict):

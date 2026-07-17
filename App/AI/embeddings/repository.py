@@ -9,7 +9,7 @@ class EmbeddingRepo():
     ):
         return (
             supabase
-            .table("Mentor Embeddings")
+            .table("MentorEmbeddings")
             .insert(
                 {
                     "mentor_id": mentor_id,
@@ -28,7 +28,7 @@ class EmbeddingRepo():
     ):
         return (
             supabase
-            .table("Mentee Embeddings")
+            .table("MenteeEmbeddings")
             .insert(
                 {
                     "mentee_id": mentee_id,

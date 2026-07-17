@@ -1,5 +1,5 @@
 from database import supabase
-
+from App.schemas.mentees import MenteesRegistration
 class MenteeRepo():
 
     @staticmethod
@@ -31,6 +31,20 @@ class MenteeRepo():
             .eq("discord_id", id)
             .execute()
         ).data
+    
+    @staticmethod
+    def getDataByIDSingle(id: str):
+        M_data= (
+            supabase
+            .table("Mentees")
+            .select("*")
+            .eq("discord_id", id)
+            .single()
+            .execute()
+        )
+
+        return MenteesRegistration(**M_data.data)
+    
 
     @staticmethod
     def updateData(id: str, data: dict):
